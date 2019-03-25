@@ -9,8 +9,9 @@ app.get('/user', function (req, res) {
     });
 });
 
-request(app)
-    .get('/user')
+let supertest = request(app);
+
+supertest.get('/user')
     .expect('Content-Type', /json/)
     .expect('Content-Length', '15')
     .expect(200)
